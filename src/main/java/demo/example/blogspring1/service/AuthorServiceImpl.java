@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
 @Service
-
 public class AuthorServiceImpl implements AuthorService {
     @Autowired
     private AuthorRepository authorRepository;
@@ -19,7 +17,7 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     public Author findById(Long id) {
-        return authorRepository.getOne(id) ;
+        return authorRepository.getOne(id);
     }
 
     @Override

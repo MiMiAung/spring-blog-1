@@ -26,6 +26,9 @@ public class Post {
         this.body = body;
         this.lastUpdated = lastUpdated;
     }
+    public Post(){
+
+    }
 
     public Post(Author author) {
         this.author = author;

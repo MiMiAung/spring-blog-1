@@ -17,7 +17,7 @@ public class Author {
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private  Long id;
 
-        @NotEmpty(message = "Name cannot be empty")
+        @NotEmpty(message = "{author.name.validator.msg}")
         private String name;
         @DateTimeFormat(pattern = "yyyy-MM-dd")
         @Past(message = "Date of Birht must be past")

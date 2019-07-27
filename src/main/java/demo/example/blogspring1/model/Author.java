@@ -4,20 +4,25 @@ import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Past;
 import java.time.LocalDate;
 
 @Entity
 
-@Data
 
 public class Author {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private  Long id;
+
+        @NotEmpty(message = "Name cannot be empty")
         private String name;
         @DateTimeFormat(pattern = "yyyy-MM-dd")
+        @Past(message = "Date of Birht must be past")
         private LocalDate dateOfBirht;
+        @NotEmpty(message = "Please Enter Something")
         private String interested;
         @Enumerated(EnumType.STRING)
         private Gender gender;
@@ -30,5 +35,45 @@ public class Author {
     }
 
     public Author() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public LocalDate getDateOfBirht() {
+        return dateOfBirht;
+    }
+
+    public void setDateOfBirht(LocalDate dateOfBirht) {
+        this.dateOfBirht = dateOfBirht;
+    }
+
+    public String getInterested() {
+        return interested;
+    }
+
+    public void setInterested(String interested) {
+        this.interested = interested;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 }

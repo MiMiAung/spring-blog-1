@@ -1,6 +1,5 @@
 package demo.example.blogspring1.model;
 
-import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -20,16 +19,16 @@ public class Author {
         @NotEmpty(message = "{author.name.validator.msg}")
         private String name;
         @DateTimeFormat(pattern = "yyyy-MM-dd")
-        @Past(message = "Date of Birht must be past")
-        private LocalDate dateOfBirht;
+        @Past(message = "Birthday must be past!")
+        private LocalDate dateOfBirth;
         @NotEmpty(message = "Please Enter Something")
         private String interested;
         @Enumerated(EnumType.STRING)
         private Gender gender;
 
-    public Author(String name, LocalDate dateOfBirht, String interested, Gender gender) {
+    public Author(String name, LocalDate dateOfBirth, String interested, Gender gender) {
         this.name = name;
-        this.dateOfBirht = dateOfBirht;
+        this.dateOfBirth = dateOfBirth;
         this.interested = interested;
         this.gender = gender;
     }
@@ -53,12 +52,12 @@ public class Author {
         this.name = name;
     }
 
-    public LocalDate getDateOfBirht() {
-        return dateOfBirht;
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setDateOfBirht(LocalDate dateOfBirht) {
-        this.dateOfBirht = dateOfBirht;
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public String getInterested() {

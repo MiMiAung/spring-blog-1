@@ -5,6 +5,7 @@ import demo.example.blogspring1.model.Gender;
 import demo.example.blogspring1.model.Post;
 import demo.example.blogspring1.repository.AuthorRepository;
 import demo.example.blogspring1.repository.PostRepository;
+import org.ocpsoft.prettytime.PrettyTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -22,6 +23,12 @@ public class BlogSpring1Application {
     public static void main(String[] args) {
         SpringApplication.run(BlogSpring1Application.class, args);
         System.out.println("Welcome Gitts");
+    }
+
+    @Bean
+
+    public PrettyTime prettyTime(){
+        return new PrettyTime();
     }
 
     @Bean

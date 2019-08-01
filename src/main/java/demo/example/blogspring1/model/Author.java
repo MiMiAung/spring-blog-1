@@ -5,12 +5,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Past;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
 
 
-public class Author {
+public class Author implements Serializable {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)

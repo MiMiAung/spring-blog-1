@@ -43,6 +43,7 @@ public class PostController {
         postService.create(post);
 
         redirectAttributes.addFlashAttribute("insert",true);
+
         return "redirect:/posts";
     }
 
@@ -52,12 +53,15 @@ public class PostController {
         model.addAttribute("posts",postService.findAll());
         model.addAttribute("success",model.containsAttribute("success"));
         model.addAttribute("insert",model.containsAttribute("insert"));
+        model.addAttribute("delete",model.containsAttribute("delete"));
+
 
         return "posts";
     }
     @GetMapping("/posts/details/{id}")
     public String showDetails(Model model,@PathVariable("id") Long id){
         model.addAttribute("post",postService.findById(id));
+
         return "postDetails";
 
     }
@@ -80,8 +84,9 @@ public class PostController {
     }
 
     @GetMapping("/posts/delete/{id}")
-    public  String deletePost(@PathVariable("id") Long id){
+    public  String deletePost(@PathVariable("id") Long id,RedirectAttributes redirectAttributes){
         postService.delete(id);
+        redirectAttributes.addFlashAttribute("delete",true);
         return "redirect:/posts";
 
     }

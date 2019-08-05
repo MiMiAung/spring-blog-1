@@ -4,7 +4,10 @@ import demo.example.blogspring1.model.Post;
 import demo.example.blogspring1.service.AuthorService;
 import demo.example.blogspring1.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
+import java.io.ByteArrayInputStream;
 
 @Controller
 public class PostController {
@@ -92,6 +96,18 @@ public class PostController {
     }
 
     private Long updatedId;
+
+    @GetMapping(value="/postreport",produces = MediaType.APPLICATION_PDF_VALUE)
+    public ResponseEntity<InputStreamResource> generatePdfReport(){
+        ByteArrayInputStream bis=PostReport.postPdfViews(postService.findAll());
+        HttpHeaders headers=new HttpHeaders();
+        headers.add("Content-Disposition","inline;filename=postreport.pdf");
+
+        return ResponseEntity.ok()
+                .headers(headers)
+                .contentType(MediaType.APPLICATION_PDF)
+                .body(new InputStreamResource(bis));
+    }
 
 
 

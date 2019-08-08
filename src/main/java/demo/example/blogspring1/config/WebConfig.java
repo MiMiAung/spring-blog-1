@@ -7,6 +7,7 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.accept.ContentNegotiationManager;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -88,6 +89,11 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addRedirectViewController("/","/posts");
+    }
+    @Bean
+    public BCryptPasswordEncoder bCryptPasswordEncoder(){
+        BCryptPasswordEncoder bCryptPasswordEncoder=new BCryptPasswordEncoder();
+        return  bCryptPasswordEncoder;
     }
 
 }

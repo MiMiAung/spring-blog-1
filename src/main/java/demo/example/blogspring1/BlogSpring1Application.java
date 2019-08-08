@@ -25,19 +25,19 @@ public class BlogSpring1Application {
         System.out.println("Welcome Gitts");
     }
 
-    @Bean
+   // @Bean
 
-    public PrettyTime prettyTime(){
-        return new PrettyTime();
-    }
+   // public PrettyTime prettyTime(){
+       // return new PrettyTime();
+   // }
 
-    @Bean
-    @Profile("dev")
+//    @Bean
+//    @Profile("dev")
+//
+//    public CommandLineRunner runner(AuthorRepository authorRepository, PostRepository postRepository) {
+//        return args -> {
 
-    public CommandLineRunner runner(AuthorRepository authorRepository, PostRepository postRepository) {
-        return args -> {
-
-            Author author1 = new Author("Thaw Thaw", LocalDate.of(2000, 3, 24), "Horror", Gender.MALE);
+    /*        Author author1 = new Author("Thaw Thaw", LocalDate.of(2000, 3, 24), "Horror", Gender.MALE);
 
             Post p1 = new Post("afeaf", "deirjufew", LocalDate.now());
             Post p2 = new Post("afeaf", "deirjufew", LocalDate.now());
@@ -56,6 +56,7 @@ public class BlogSpring1Application {
 
 
         };
-    }
+        */
+
 
 }

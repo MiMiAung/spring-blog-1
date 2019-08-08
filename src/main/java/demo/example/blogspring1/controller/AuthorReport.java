@@ -5,11 +5,12 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import demo.example.blogspring1.model.Author;
+import org.springframework.stereotype.Component;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.util.List;
-
+@Component
 public class AuthorReport {
     public static ByteArrayInputStream authorPdfViews(List<Author> authorList){
         ByteArrayOutputStream out=new ByteArrayOutputStream();

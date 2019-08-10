@@ -25,11 +25,11 @@ public class BlogSpring1Application {
         System.out.println("Welcome Gitts");
     }
 
-   // @Bean
+    @Bean
 
-   // public PrettyTime prettyTime(){
-       // return new PrettyTime();
-   // }
+    public PrettyTime prettyTime(){
+        return new PrettyTime();
+    }
 
 //    @Bean
 //    @Profile("dev")

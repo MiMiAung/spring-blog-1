@@ -7,6 +7,7 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.accept.ContentNegotiationManager;
@@ -75,7 +76,7 @@ public class WebConfig implements WebMvcConfigurer {
     }
     */
     @ExceptionHandler(EntityNotFoundException.class)
-    public ModelAndView handleNotFoundException(HttpServletRequest request, EntityNotFoundException ex){
+    public ModelAndView handleNotFoundException(HttpServletRequest request,  Exception ex){
         ModelAndView mv=new ModelAndView();
 
         mv.addObject("message",ex.getMessage());

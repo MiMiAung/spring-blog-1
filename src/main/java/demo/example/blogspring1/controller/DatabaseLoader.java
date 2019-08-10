@@ -25,10 +25,10 @@ public class DatabaseLoader implements CommandLineRunner {
     public void run(String... args) throws Exception {
         Role admin=new Role("ROLE_ADMIN");
         Role user=new Role("ROLE_USER");
-        String secretAdminUser="{bcrypt}"+bCryptPasswordEncoder.encode("kyaw");
+        String secretAdminUser=bCryptPasswordEncoder.encode("kyaw");
 
         User adminUser=new User("kyaw","admin",secretAdminUser,"adminmail@gmail.com");
-        String secretUser="{bcrypt}"+bCryptPasswordEncoder.encode("thaw");
+        String secretUser=bCryptPasswordEncoder.encode("thaw");
         User userUser=new User("thaw","user",secretUser,"usermail@gmail.com");
 
         adminUser.addRole(admin);
@@ -40,10 +40,9 @@ public class DatabaseLoader implements CommandLineRunner {
 
 //        roleRepository.save(admin);
 //        roleRepository.save(user);
-//
 //        userRepository.save(adminUser);
 //        userRepository.save(userUser);
-//
+
 
 
 

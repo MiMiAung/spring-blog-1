@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Data
+
 
 public class Role implements Serializable {
     @Id
@@ -34,5 +34,13 @@ public class Role implements Serializable {
 
     public void setUsers(List<User> users) {
         this.users = users;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

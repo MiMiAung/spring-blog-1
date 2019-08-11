@@ -35,10 +35,17 @@ public class WebMVCSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers("/author").hasRole("ADMIN")
                 .and()
                 .formLogin()
+
+                .loginPage("/login")
+                .permitAll()
+                .usernameParameter("email")
                 .and()
-                .httpBasic()
-               // .loginPage("/login")
-              //  .permitAll()
+                 .logout()
+                 .and()
+                 .rememberMe()
+                 .and()
+                 .csrf()
+                 .disable()
 
                 ;
 
